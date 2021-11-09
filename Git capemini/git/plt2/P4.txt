@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class P4 {
+   public static void main(String[] args) {
+      Scanner sc= new Scanner(System.in);
+      System.out.println("Input a Decimal Number : ");
+      int deciNum = sc.nextInt();
+      int binaryNum[] = new int[100];
+      int temp = deciNum;
+      int i=1;
+      while(temp!= 0)
+      {
+         binaryNum[i++] =temp%2;
+         temp= temp/2;
+      }
+      System.out.println("Binary number is: ");
+      for(int j=i-1; j>0; j--)
+      {
+         System.out.print(binaryNum[j]);
+      }
+   }
+}
+

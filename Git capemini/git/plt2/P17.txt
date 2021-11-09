@@ -1,0 +1,120 @@
+import java.util.Scanner;
+public class P17 {
+    public static void main(String[] args) {
+        int n, m, p, q, sum = 0, c, d, k;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1.Addition");
+        System.out.println("2.Subtraction");
+        System.out.println("3.Multiplication");
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1:
+            System.out.println("Enter the order of the matrix : ");
+            m = sc.nextInt();
+            n = sc.nextInt();
+            int[][] mat1 = new int[m][n];
+            int[][] mat2 = new int[m][n];
+            int[][] mat3 = new int[m][n];
+            System.out.println("Input the matrix 1 elements : ");
+            int i, j;
+            for (i = 0; i < m; i++) {
+                for (j = 0; j < n; j++)
+                    mat1[i][j] = sc.nextInt();
+            }
+
+            System.out.print("Input the matrix 2 elements : ");
+            for (i = 0; i < n; i++) {
+                for (j = 0; j < n; j++)
+                    mat2[i][j] = sc.nextInt();
+            }
+            System.out.println("Addition of the two matrices :");
+            for (i = 0; i < m; i++) {
+                for (j = 0; j < n; j++) {
+                    mat3[i][j] = mat1[i][j] + mat2[i][j];
+                }
+            }
+            break;
+            case 2:
+                System.out.println("Enter the order of the matrix : ");
+                m = sc.nextInt();
+                n = sc.nextInt();
+                int[][] mat4 = new int[m][n];
+                int[][] mat5 = new int[m][n];
+                int[][] mat6 = new int[m][n];
+                System.out.println("Input the matrix 1 elements : ");
+                int x,y;
+                for (x = 0; x < m; x++) {
+                    for (y = 0; y < n; y++)
+                        mat4[x][y] = sc.nextInt();
+                }
+
+                System.out.print("Input the matrix 2 elements : ");
+                for (x = 0;x< n;x++) {
+                    for (y= 0;y < n;y++)
+                        mat5[x][y] = sc.nextInt();
+                }
+            for (x= 0;x < m; x++) {
+                for (y= 0;y< n;y++)
+                    System.out.print(mat6[x][y] + " ");
+                System.out.println();
+            }
+            System.out.println("Subtraction of the two matrices :");
+            for (x = 0;x< m; x++) {
+                for (y= 0; y< n;y++) {
+                    mat6[x][y] = mat4[x][y] - mat5[x][y];
+                }
+            }
+            for (x= 0;x< m;x++) {
+                for (y= 0;y < n; y++)
+                    System.out.print(mat6[x][y] + " ");
+                System.out.println();
+            }
+            break;
+            case 3:
+            System.out.println("Enter the number of rows and columns of first matrix: ");
+            m = sc.nextInt();
+            n = sc.nextInt();
+            int first[][] = new int[m][n];
+            System.out.println("Enter elements of first matrix: ");
+            for (c = 0; c < m; c++)
+                for (d = 0; d < n; d++)
+                    first[c][d] = sc.nextInt();
+
+            System.out.println("Enter the number of rows and columns of second matrix: ");
+            p = sc.nextInt();
+            q = sc.nextInt();
+            if (n != p)
+                System.out.println("The matrices can’t be multiplied with each other");
+            else {
+                int second[][] = new int[p][q];
+                int multiply[][] = new int[m][q];
+                System.out.println("Enter elements of second matrix: ");
+                for (c = 0; c < p; c++)
+                    for (d = 0; d < q; d++)
+                        second[c][d] = sc.nextInt();
+                for (c = 0; c < m; c++) {
+                    for (d = 0; d < q; d++) {
+                        for (k = 0; k < p; k++) {
+                            sum = sum + first[c][k] * second[k][d];
+                        }
+                        multiply[c][d] = sum;
+                        sum = 0;
+                    }
+                }
+                System.out.println("Product of the matrices: ");
+                for (c = 0; c < m; c++) {
+                    for (d = 0; d < q; d++)
+                        System.out.print(multiply[c][d] + "\t");
+                    System.out.print(" \n");
+                }
+            }
+            break;
+            default:
+                System.out.println("Wrong Choice");
+                System.out.println("Please Enter 1,2 or 3");
+                break;
+        }
+    }
+
+}
+

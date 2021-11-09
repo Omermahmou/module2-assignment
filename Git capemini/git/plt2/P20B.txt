@@ -1,0 +1,23 @@
+import java.util.Scanner;
+class Nth{
+   public int nthTerm(int N)
+   {
+      if (N <= 1)
+         return 1;
+      int i, fact = 1;
+      for (i = 1; i < N; i++)
+         fact = fact * i;
+      return fact;
+   }
+}
+public class plt20b {
+   public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter Row: ");
+      int N=sc.nextInt();
+      Nth a = new Nth();
+      System.out.println(a.nthTerm(N));
+   }
+}
+
+
